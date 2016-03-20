@@ -10,16 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    // Programmatic Approach
+    @IBAction func playRock(sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsVC") as! ResultsVC
+        vc.userChoice = sender.titleLabel!.text
+        presentViewController(vc, animated: true, completion: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // Segue with Code Approach
+    @IBAction func playPaper(sender: UIButton) {
+        performSegueWithIdentifier("play", sender: sender)
     }
-
-
+    
+    // Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "play" {
+            let vc = segue.destinationViewController as! ResultsVC
+            vc.userChoice = sender!.titleLabel!!.text
+        }
+    }
 }
+
+
 

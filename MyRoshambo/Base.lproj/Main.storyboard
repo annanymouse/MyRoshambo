@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyRoshambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VR6-n8-NXK">
+                                <rect key="frame" x="290" y="194" width="56" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggH-sw-4JE">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
+                                        <state key="normal" title="rock"/>
+                                        <connections>
+                                            <action selector="playRock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0aJ-t4-Orh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wj9-tL-7p6">
+                                        <rect key="frame" x="0.0" y="50" width="56" height="30"/>
+                                        <state key="normal" title="paper"/>
+                                        <connections>
+                                            <action selector="playPaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6iG-Lc-U2J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6R-zF-0az">
+                                        <rect key="frame" x="0.0" y="100" width="56" height="30"/>
+                                        <state key="normal" title="scissors"/>
+                                        <connections>
+                                            <segue destination="eRV-8f-aDQ" kind="presentation" identifier="play" id="sGW-ee-IAt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VR6-n8-NXK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="18" id="FLr-J5-byd"/>
+                            <constraint firstItem="VR6-n8-NXK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-41" id="beA-NH-Dhf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--ResultsVC-->
+        <scene sceneID="UU8-mU-VwH">
+            <objects>
+                <viewController storyboardIdentifier="ResultsVC" id="eRV-8f-aDQ" customClass="ResultsVC" customModule="MyRoshambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rhy-VF-n4x"/>
+                        <viewControllerLayoutGuide type="bottom" id="cHB-Zu-mRj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fc7-eu-aRQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aWR-9q-vWk">
+                                <rect key="frame" x="262" y="223" width="76" height="101"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzt-BQ-yMH">
+                                        <rect key="frame" x="17" y="0.0" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeK-98-pqf">
+                                        <rect key="frame" x="0.0" y="71" width="76" height="30"/>
+                                        <state key="normal" title="Play Again!"/>
+                                        <connections>
+                                            <action selector="playAgain" destination="eRV-8f-aDQ" eventType="touchUpInside" id="qWv-jj-waf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aWR-9q-vWk" firstAttribute="centerX" secondItem="fc7-eu-aRQ" secondAttribute="centerX" id="S4H-j8-Omz"/>
+                            <constraint firstItem="aWR-9q-vWk" firstAttribute="centerY" secondItem="fc7-eu-aRQ" secondAttribute="centerY" constant="-26.5" id="uMD-4I-PGq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="tzt-BQ-yMH" id="hwF-eN-GZD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOM-do-Ppk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1111" y="241"/>
         </scene>
     </scenes>
 </document>
